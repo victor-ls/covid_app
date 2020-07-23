@@ -1,0 +1,29 @@
+{% load bootstrap4 %}
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Atualizar Paciente</title>
+    {% bootstrap_css %}
+</head>
+<body>
+    <div class="container">
+        <h1>Criar ou atualizar paciente</h1>
+        <form method="POST" class="form" autocomplete="off">
+            {% csrf_token %}
+            {% bootstrap_form form %}
+            {% buttons %}
+            <button type="Submit" class="btn btn-primary">Salvar Paciente</button>
+            {% endbuttons %}
+        </form>
+   </div>
+    {% if patient %}
+        <a href="{% url 'delete_patient' patient.id %}" class="btn btn_primary">Apagar paciente</a>
+    {% endif %}
+
+{% bootstrap_javascript jquery='full' %}
+</body>
+</html>

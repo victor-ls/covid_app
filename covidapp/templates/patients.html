@@ -1,0 +1,28 @@
+{% load bootstrap4 %}
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Listagem de pacientes</title>
+    {% bootstrap_css %}
+</head>
+<body>
+    <ul class="list-group">
+        {% for patient in patients %}
+            <a href="{% url 'update_patient' patient.id %}">
+                <li class="list-group-item">Nome completo: {{patient.fullName}}</li>
+                <li class="list-group-item">Data de nascimento: {{patient.dateOfBirth}}</li>
+                <li class="list-group-item">Resultado do exame: {{patient.result}}</li>
+                <li class="list-group-item">Tipo de teste realizado: {{patient.test}}</li>
+            </a>
+        <br/>
+        <br/>
+        {% endfor %}
+    </ul>
+
+    <a href="{% url 'create_patients' %}">Clique aqui para cadastrar novo paciente</a>
+</body>
+</html>

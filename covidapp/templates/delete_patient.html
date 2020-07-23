@@ -1,0 +1,24 @@
+{% load bootstrap4 %}
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Deletar Paciente</title>
+    {% bootstrap_css %}
+</head>
+<body>
+    <form method="POST" class="form" autocomplete="off">
+        {% csrf_token %}
+        {% buttons %}
+        Você deseja remover o paciente {{patient.fullName}}?
+        <br/>
+        <button type="submit" class="btn btn-primary">Sim</button>
+        {% endbuttons %}
+        <a href="/">Voltar para listagem de pacientes</a>
+    </form>
+
+</body>
+</html>
